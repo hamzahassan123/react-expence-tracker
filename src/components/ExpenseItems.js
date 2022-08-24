@@ -1,17 +1,18 @@
-import './ExpenseItems.css'
-const ExpenseItem = () => {
-    const expenseDate = new Date();
-    const expenseTitle = ' Car Insurance';
-    const expensePrice = '294.88';
+import "./ExpenseItems.css";
+import ExpenseDate from "./ExpenseDate";
+import Card from "./Card";
+const ExpenseItem = (props) => {
+
+
     return (
-        <div className='expense-item'>
-            <div >{expenseDate.toISOString()} </div>
-            <div className='expense-item__description'>
-                <h2>{expenseTitle} </h2>
-                <div className='expense-item__price'>${expensePrice}</div>
+        <Card className="expense-item">
+            <ExpenseDate date={props.date} />
+            <div className="expense-item__description">
+                <h2>{props.title} </h2>
+                <div className="expense-item__price">${props.amount}</div>
             </div>
-        </div>
+        </Card>
     );
-}
+};
 
 export default ExpenseItem;
